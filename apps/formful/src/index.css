@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        @apply text-gray-500
+
+    body,
+    input {
+        @apply bg-neutral-800 text-neutral-200
     }
 }

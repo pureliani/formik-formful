@@ -23,33 +23,33 @@ const initialState = {
   }
 } satisfies z.infer<typeof schema>
 
-const { useField } = createForm({ 
-  initialState, 
-  schema, 
-  async onSubmit() {}
+const { useField } = createForm({
+  initialState,
+  schema,
+  async onSubmit() { }
 })
 
 const InputC = () => {
-  const { 
-    value, 
-    setValue, 
+  const {
+    value,
+    setValue,
     errors,
-    wasTouched,
-    setWasTouched,
+    meta,
+    setMeta
   } = useField(state => state.a.b.c)
 
   return (
     <label className="flex flex-col gap-2 cursor-pointer">
       <h4 className="text-lg font-semibold">Input C</h4>
-      <input 
-        className="p-2 border border-indigo-600 focus:outline focus:outline-indigo-500" 
-        type="text" 
-        value={value} 
-        onChange={e => setValue(e.target.value)} 
-        onBlur={() => setWasTouched(true)}
+      <input
+        className="p-2 border-2 border-indigo-500 focus:outline focus:outline-indigo-500 focus:outline-2"
+        type="text"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        onBlur={() => setMeta({ touched: true })}
       />
-      {wasTouched && errors.length > 0 && (
-        <h6 className="text-pink-600">{errors[0]}</h6>
+      {meta?.touched && errors.length > 0 && (
+        <h6 className="text-pink-500">{errors[0]}</h6>
       )}
     </label>
   )
@@ -57,26 +57,26 @@ const InputC = () => {
 
 
 const InputE = () => {
-  const { 
-    value, 
-    setValue, 
+  const {
+    value,
+    setValue,
     errors,
-    wasTouched,
-    setWasTouched,
+    meta,
+    setMeta
   } = useField(state => state.a.d.e)
 
   return (
     <label className="flex flex-col gap-2 cursor-pointer">
       <h4 className="text-lg font-semibold">Input E</h4>
-      <input 
-        className="p-2 border border-indigo-600 focus:outline focus:outline-indigo-500" 
-        type="text" 
-        value={value} 
-        onChange={e => setValue(e.target.value)} 
-        onBlur={() => setWasTouched(true)}
+      <input
+        className="p-2 border-2 border-indigo-500 focus:outline focus:outline-indigo-500 focus:outline-2"
+        type="text"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        onBlur={() => setMeta({ touched: true })}
       />
-      {wasTouched && errors.length > 0 && (
-        <h6 className="text-pink-600">{errors[0]}</h6>
+      {meta?.touched && errors.length > 0 && (
+        <h6 className="text-pink-500">{errors[0]}</h6>
       )}
     </label>
   )
@@ -85,6 +85,7 @@ const InputE = () => {
 export const App = () => {
   return (
     <div className="flex flex-col gap-10 p-8">
+      <h3 className="text-xl">@gapu/formful</h3>
       <InputC />
       <InputE />
     </div>

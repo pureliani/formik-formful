@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    body,
+    input {
+        @apply bg-neutral-800 text-neutral-200
+    }
+}

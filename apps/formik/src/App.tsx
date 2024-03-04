@@ -12,7 +12,7 @@ const validationSchema = Yup.object({
   }),
 });
 
-const initialValues ={
+const initialValues = {
   a: {
     b: {
       c: ''
@@ -29,13 +29,13 @@ const InputC = () => {
   return (
     <label className="flex flex-col gap-2 cursor-pointer">
       <h4 className="text-lg font-semibold">Input C</h4>
-      <input 
-        className="p-2 border border-indigo-600 focus:outline focus:outline-indigo-500" 
-        type="text" 
+      <input
+        className="p-2 border-2 border-indigo-500 focus:outline focus:outline-indigo-500 focus:outline-2"
+        type="text"
         {...field}
       />
       {meta.error && (
-        <h6 className="text-pink-600">{meta.error}</h6>
+        <h6 className="text-pink-500">{meta.error}</h6>
       )}
     </label>
   )
@@ -48,13 +48,13 @@ const InputE = () => {
   return (
     <label className="flex flex-col gap-2 cursor-pointer">
       <h4 className="text-lg font-semibold">Input E</h4>
-      <input 
-        className="p-2 border border-indigo-600 focus:outline focus:outline-indigo-500" 
-        type="text" 
+      <input
+        className="p-2 border-2 border-indigo-500 focus:outline focus:outline-indigo-500 focus:outline-2"
+        type="text"
         {...field}
       />
       {meta.error && (
-        <h6 className="text-pink-600">{meta.error}</h6>
+        <h6 className="text-pink-500">{meta.error}</h6>
       )}
     </label>
   )
@@ -66,11 +66,11 @@ const InputE = () => {
 //       {({ field, meta }: FieldProps) => (
 //         <label className="flex flex-col gap-2 cursor-pointer">
 //           <h4 className="text-lg font-semibold">Input C</h4>
-//           <input 
-//             className="p-2 border border-indigo-600 focus:outline focus:outline-indigo-500" 
-//             type="text" 
+//           <input
+//             className="p-2 border-2 border-indigo-500 focus:outline focus:outline-indigo-500 focus:outline-2"
+//             type="text"
 //             {...field}
-//             />
+//           />
 //           {meta.error && (
 //             <h6 className="text-pink-600">{meta.error}</h6>
 //           )}
@@ -86,11 +86,11 @@ const InputE = () => {
 //       {({ field, meta }: FieldProps) => (
 //         <label className="flex flex-col gap-2 cursor-pointer">
 //           <h4 className="text-lg font-semibold">Input E</h4>
-//           <input 
-//             className="p-2 border border-indigo-600 focus:outline focus:outline-indigo-500" 
-//             type="text" 
+//           <input
+//             className="p-2 border-2 border-indigo-500 focus:outline focus:outline-indigo-500 focus:outline-2"
+//             type="text"
 //             {...field}
-//             />
+//           />
 //           {meta.error && (
 //             <h6 className="text-pink-600">{meta.error}</h6>
 //           )}
@@ -105,12 +105,13 @@ export const App = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={async () => {}}
+      onSubmit={async () => { }}
     >
-        <Form className="flex flex-col gap-10 p-8">
-          <InputC />
-          <InputE />
-        </Form>
+      <Form className="flex flex-col gap-10 p-8">
+        <h3 className="text-xl">Formik</h3>
+        <InputC />
+        <InputE />
+      </Form>
     </Formik>
   );
 };
